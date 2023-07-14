@@ -1,12 +1,19 @@
 <main>
   <h1>Listado de productos</h1>
-  <mat-slide-toggle (click)="toggleLista()" [checked]="true">
-    {{ mostrarLista ? "Ocultar lista" : "Mostrar lista" }}
-  </mat-slide-toggle>
-  <ul *ngIf="mostrarLista">
-    <li *ngFor="let producto of listaProductos">
-      <p>Nombre: {{ producto.nombre }}</p>
-      <p>Precio: {{ producto.costo | currency }}</p>
-    </li>
-  </ul>
+    <div class="toggle-container">
+      <span>{{ mostrarLista ? "Ocultar lista" : "Mostrar lista" }}</span>
+      <mat-slide-toggle
+        (click)="toggleLista()"
+        [checked]="true"
+      ></mat-slide-toggle>
+    </div>
+    <ul *ngIf="mostrarLista">
+      <li *ngFor="let producto of listaProductos">
+        <p><span class="title-span">Nombre:</span> {{ producto.nombre }}</p>
+        <p>
+          <span class="title-span">Precio:</span>
+          {{ producto.costo | currency }}
+        </p>
+      </li>
+    </ul>
 </main>
